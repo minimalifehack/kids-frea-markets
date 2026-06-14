@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>きりしまキッズフリマ｜2026.8.3 開催</title>
+<meta name="description" content="夏休み、子どもたちが店主になる体験型フリーマーケット。2026年8月3日（月）10:00〜12:00、桷志田体育館にて開催。小学3〜6年生対象。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Yusei+Magic&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* ポップ・パレット（白ベース） */
+  --blue:     #2a44d4;  /* ロイヤルブルー：見出し・主役 */
+  --blue-ink: #222a66;  /* 本文 */
+  --cyan:     #1ec3e6;
+  --magenta:  #ff3e9a;
+  --pink:     #ff96c8;
+  --yellow:   #ffd12e;
+  --green:    #2ecf9a;
+  --orange:   #ff8a3a;
+  --red:      #ef4b3c;
+  --paper:    #fffdf6;
+
+  --font-pop:   "Mochiy Pop One", "Hiragino Maru Gothic ProN", system-ui, sans-serif;
+  --font-body:  "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", system-ui, sans-serif;
+  --font-hand:  "Yusei Magic", "Hiragino Maru Gothic ProN", system-ui, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--blue-ink);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(circle at 12% 8%,  rgba(30,195,230,0.10) 0 8px, transparent 9px),
+    radial-gradient(circle at 88% 22%, rgba(255,62,154,0.10) 0 7px, transparent 8px),
+    radial-gradient(circle at 78% 84%, rgba(255,209,46,0.14) 0 9px, transparent 10px),
+    radial-gradient(circle at 18% 70%, rgba(46,207,154,0.10) 0 7px, transparent 8px);
+  line-height: 1.9;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 { font-family: var(--font-pop); font-weight: 400; line-height: 1.35; }
+
+/* ============ ブロブ & doodle ============ */
+.blob { position: absolute; z-index: 0; pointer-events: none; filter: blur(0.2px); }
+.doodle { position: absolute; z-index: 1; pointer-events: none; }
+.float { animation: float 6s ease-in-out infinite; }
+.float.alt { animation-duration: 7.5s; animation-delay: -2s; }
+.spin-slow { animation: spin 9s linear infinite; transform-origin: center; }
+
+/* ============ セクション ============ */
+section { position: relative; max-width: 1000px; margin: 0 auto; padding: 78px 24px; z-index: 1; }
+
+.pop-title {
+  position: relative; display: inline-block;
+  font-size: clamp(1.7rem, 6vw, 2.5rem);
+  line-height: 1.1;
+  color: var(--blue); letter-spacing: 0.01em;
+  -webkit-text-stroke: 5px #fff; paint-order: stroke fill;
+}
+.pop-title::after { /* 蛍光ペン風ハイライト */
+  content: ""; position: absolute; left: -8px; right: -8px;
+  bottom: 0.2em; height: 0.42em;
+  background: var(--hl, var(--yellow)); border-radius: 8px;
+  z-index: -1; transform: rotate(-1.2deg);
+}
+.section-head {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; margin-bottom: 48px; position: relative;
+}
+.section-sub {
+  margin-top: 18px;
+  font-family: var(--font-hand);
+  font-size: 0.95rem; letter-spacing: 0.06em;
+  color: #fff; background: #d81b76;
+  padding: 5px 18px; border-radius: 999px;
+  transform: rotate(-1.5deg);
+  box-shadow: 3px 3px 0 rgba(34,42,102,0.12);
+}
+
+/* ============ ヒーロー ============ */
+.hero {
+  position: relative; overflow: hidden;
+  text-align: center; padding: 70px 24px 90px;
+  background:
+    radial-gradient(70% 55% at 50% 30%, #ffffff 0%, rgba(255,255,255,0) 70%),
+    var(--paper);
+}
+.hero-inner { position: relative; z-index: 3; max-width: 760px; margin: 0 auto; }
+
+.badge-decided {
+  display: inline-block;
+  font-family: var(--font-pop); font-size: clamp(0.95rem, 3.4vw, 1.25rem);
+  color: #fff; background: var(--red);
+  padding: 8px 26px; border-radius: 999px;
+  letter-spacing: 0.18em; transform: rotate(-2.5deg);
+  box-shadow: 4px 4px 0 rgba(34,42,102,0.18);
+  margin-bottom: 22px;
+}
+.badge-decided b { font-weight: 400; }
+
+.hero-eyebrow {
+  font-family: var(--font-hand);
+  font-size: clamp(0.82rem, 3vw, 1rem);
+  color: var(--blue); margin-bottom: 18px; letter-spacing: 0.02em;
+}
+
+.hero-name {
+  display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 7px;
+  margin-bottom: 14px;
+}
+.hero-name span {
+  font-family: var(--font-pop); font-size: clamp(1.1rem, 4.6vw, 1.7rem);
+  color: var(--blue-ink); padding: 4px 12px; border-radius: 10px;
+  box-shadow: 2px 3px 0 rgba(34,42,102,0.15);
+  transform: rotate(var(--r, 0deg));
+}
+.hero-name span:nth-child(5n+1){ background: var(--cyan); }
+.hero-name span:nth-child(5n+2){ background: var(--magenta); }
+.hero-name span:nth-child(5n+3){ background: var(--yellow); }
+.hero-name span:nth-child(5n+4){ background: var(--green); }
+.hero-name span:nth-child(5n+5){ background: var(--orange); }
+
+.hero-big {
+  font-family: var(--font-pop);
+  font-size: clamp(3rem, 14vw, 6rem); line-height: 1.05;
+  color: var(--blue);
+  -webkit-text-stroke: 10px #fff; paint-order: stroke fill;
+  filter: drop-shadow(5px 6px 0 rgba(255,62,154,0.55));
+  margin-bottom: 34px;
+}
+
+.hero-info {
+  display: inline-flex; flex-direction: column; gap: 12px; align-items: center;
+  background: #fff; border: 4px solid var(--blue);
+  border-radius: 22px; padding: 22px 30px;
+  box-shadow: 6px 6px 0 rgba(42,68,212,0.18);
+}
+.hero-info .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.hero-info .tag {
+  font-family: var(--font-pop); font-size: 0.72rem; letter-spacing: 0.12em;
+  color: #fff; background: var(--magenta); padding: 4px 12px; border-radius: 999px;
+}
+.hero-info .row:nth-child(2) .tag { background: var(--cyan); }
+.hero-info .val { font-family: var(--font-pop); font-size: clamp(1.2rem, 5vw, 1.7rem); color: var(--blue); }
+.hero-info .val small { font-family: var(--font-body); font-weight: 800; font-size: 0.62em; }
+
+/* ============ カード共通 ============ */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+
+.pop-card {
+  position: relative; overflow: hidden;
+  background: #fff; border: 3px solid var(--c, var(--cyan));
+  border-radius: 26px; padding: 34px 22px 28px; text-align: center;
+  box-shadow: 6px 7px 0 var(--cs, rgba(30,195,230,0.22));
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.pop-card:hover { transform: translateY(-7px) rotate(0deg); box-shadow: 6px 12px 0 var(--cs, rgba(30,195,230,0.3)); }
+.pop-card .icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 78px; height: 78px; border-radius: 50%;
+  background: var(--ibg, rgba(30,195,230,0.16));
+  font-size: 2.5rem; margin-bottom: 14px;
+}
+.pop-card h3 { font-size: 1.18rem; color: var(--blue-ink); margin-bottom: 10px; }
+.pop-card p { font-size: 0.96rem; font-weight: 500; color: #3a4170; }
+.pop-card .big { font-family: var(--font-pop); font-size: 1.4rem; color: var(--blue); line-height: 1.5; }
+.pop-card .big small { font-family: var(--font-body); font-weight: 800; font-size: 0.6em; color: #3a4170; }
+
+/* 色バリエーション */
+.c-cyan    { --c: var(--cyan);    --cs: rgba(30,195,230,0.22);  --ibg: rgba(30,195,230,0.16); }
+.c-magenta { --c: var(--magenta); --cs: rgba(255,62,154,0.22);  --ibg: rgba(255,62,154,0.14); }
+.c-yellow  { --c: var(--yellow);  --cs: rgba(255,209,46,0.3);   --ibg: rgba(255,209,46,0.22); }
+.c-green   { --c: var(--green);   --cs: rgba(46,207,154,0.22);  --ibg: rgba(46,207,154,0.16); }
+.c-orange  { --c: var(--orange);  --cs: rgba(255,138,58,0.22);  --ibg: rgba(255,138,58,0.16); }
+
+/* 会場マップ */
+.map-block { margin-top: 40px; text-align: center; }
+.map-label {
+  display: inline-block; margin-bottom: 18px;
+  font-family: var(--font-pop); font-size: 1.05rem; color: var(--blue);
+}
+.map-label .pin { margin-right: 6px; }
+.map-frame {
+  position: relative; border: 3px solid var(--cyan); border-radius: 26px;
+  overflow: hidden; line-height: 0; background: #fff;
+  box-shadow: 6px 7px 0 rgba(30,195,230,0.22);
+}
+.map-frame iframe { width: 100%; height: 360px; border: 0; display: block; }
+.map-btn {
+  display: inline-block; margin-top: 22px;
+  font-family: var(--font-pop); font-size: 0.95rem; color: #fff;
+  background: var(--blue); padding: 12px 28px; border-radius: 999px;
+  text-decoration: none; box-shadow: 4px 4px 0 rgba(34,42,102,0.18);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.map-btn:hover { transform: translateY(-3px); box-shadow: 4px 8px 0 rgba(34,42,102,0.22); }
+
+/* 目的セクション */
+.purpose .num {
+  position: absolute; top: 14px; left: 16px;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--c, var(--cyan)); color: #fff;
+  font-family: var(--font-pop); font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 2px 2px 0 rgba(34,42,102,0.15);
+}
+
+/* ============ 当日の流れ ============ */
+.flow-lead { text-align: center; max-width: 660px; margin: 0 auto 50px; font-weight: 500; }
+.flow-route {
+  list-style: none; display: flex; flex-wrap: wrap;
+  justify-content: center; align-items: flex-start; gap: 14px;
+}
+.flow-route li.step { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; width: 124px; text-align: center; }
+.flow-route .bubble {
+  position: relative; width: 76px; height: 76px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--c, var(--cyan)); font-size: 2rem;
+  box-shadow: 4px 5px 0 rgba(34,42,102,0.14);
+  border: 3px solid #fff;
+}
+.flow-route .bubble .no {
+  position: absolute; top: -8px; left: -8px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #fff; color: var(--blue-ink); border: 2px solid var(--c, var(--cyan));
+  font-family: var(--font-pop); font-size: 0.85rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.flow-route .name { font-family: var(--font-pop); font-size: 0.98rem; color: var(--blue-ink); }
+/* ステップ間のドット連結（装飾） */
+.flow-route li.step:not(:last-child)::after {
+  content: "•••"; position: absolute; top: 26px; left: calc(50% + 47px);
+  color: var(--pink); font-size: 1.4rem; letter-spacing: 2px; line-height: 1; white-space: nowrap;
+}
+.flow-route li.step:nth-child(1) .bubble { --c: var(--magenta); }
+.flow-route li.step:nth-child(2) .bubble { --c: var(--orange); }
+.flow-route li.step:nth-child(3) .bubble { --c: var(--yellow); }
+.flow-route li.step:nth-child(4) .bubble { --c: var(--green); }
+.flow-route li.step:nth-child(5) .bubble { --c: var(--cyan); }
+
+/* ============ お問い合わせ ============ */
+.contact { text-align: center; }
+.contact-card {
+  position: relative; max-width: 600px; margin: 0 auto;
+  background: #fff; border: 3px dashed var(--magenta);
+  border-radius: 28px; padding: 46px 30px 40px;
+  box-shadow: 6px 7px 0 rgba(255,62,154,0.18);
+}
+.contact-card .smiley {
+  position: absolute; top: -28px; left: 50%; transform: translateX(-50%);
+}
+.contact-lead { margin-bottom: 18px; font-weight: 500; }
+.contact-info {
+  display: inline-block;
+  font-family: var(--font-hand); font-size: 0.88rem; color: var(--blue);
+  background: rgba(42,68,212,0.08); padding: 5px 16px; border-radius: 999px;
+}
+
+/* ============ フッター ============ */
+.site-footer {
+  position: relative; text-align: center; overflow: hidden;
+  margin-top: 30px; padding: 70px 24px 46px;
+  color: #fff; background: var(--blue);
+}
+.site-footer .wave-top {
+  position: absolute; top: -1px; left: 0; width: 100%; height: 40px;
+  display: block;
+}
+.site-footer .f-lanterns { display: flex; justify-content: center; gap: 14px; margin-bottom: 18px; position: relative; z-index: 2; }
+.site-footer p { position: relative; z-index: 2; font-family: var(--font-pop); font-size: 1.05rem; letter-spacing: 0.03em; }
+.site-footer .copy { font-family: var(--font-body); font-weight: 500; font-size: 0.78rem; opacity: 0.7; margin-top: 12px; }
+
+/* ============ アニメーション ============ */
+@keyframes float { 0%,100% { transform: translateY(0) rotate(var(--rot,0deg)); } 50% { transform: translateY(-14px) rotate(var(--rot,0deg)); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes popIn { 0% { opacity: 0; transform: scale(0.8) translateY(20px); } 60% { transform: scale(1.04) translateY(0); } 100% { opacity: 1; transform: scale(1); } }
+.reveal { opacity: 0; animation: popIn 0.7s cubic-bezier(0.2,0.8,0.3,1.2) forwards; }
+
+/* ============ レスポンシブ ============ */
+/* ステップが折り返す幅では連結ドットを隠す */
+@media (max-width: 760px) {
+  .flow-route li.step:not(:last-child)::after { display: none; }
+}
+
+@media (max-width: 620px) {
+  section { padding: 60px 18px; }
+  .hero { padding: 54px 18px 74px; }
+  .hero-big { -webkit-text-stroke-width: 7px; }
+  .pop-title { -webkit-text-stroke-width: 4px; }
+  .flow-route li.step { width: 31%; min-width: 96px; }
+  .blob.hide-sp { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ ヒーロー ============ -->
+<header class="hero">
+  <!-- 背景ブロブ -->
+  <svg class="blob" style="top:-6%; left:-8%; width:300px" viewBox="0 0 200 200" aria-hidden="true"><path fill="#1ec3e6" fill-opacity="0.85" d="M44,-67C56,-58,63,-43,69,-27C75,-11,78,7,73,23C69,39,56,52,41,61C25,70,7,75,-11,73C-30,71,-49,62,-62,48C-75,33,-81,12,-78,-7C-75,-27,-63,-45,-48,-56C-32,-67,-13,-71,4,-76C20,-81,40,-76,44,-67Z" transform="translate(100 100)"/></svg>
+  <svg class="blob" style="top:4%; right:-10%; width:280px" viewBox="0 0 200 200" aria-hidden="true"><path fill="#ffd12e" d="M42,-66C54,-57,62,-43,68,-28C74,-13,77,4,72,19C66,34,52,46,37,57C22,67,5,76,-13,75C-31,75,-50,65,-62,50C-74,35,-79,15,-76,-3C-73,-22,-62,-39,-48,-50C-33,-61,-17,-66,0,-66C16,-66,32,-66,42,-66Z" transform="translate(100 100)"/></svg>
+  <svg class="blob hide-sp" style="bottom:-14%; left:8%; width:240px" viewBox="0 0 200 200" aria-hidden="true"><path fill="#ff3e9a" fill-opacity="0.85" d="M40,-64C51,-56,58,-42,64,-28C70,-13,73,4,69,19C64,35,52,49,37,59C21,68,2,73,-16,71C-35,68,-54,58,-65,42C-76,26,-78,4,-73,-15C-67,-34,-54,-50,-39,-58C-23,-66,-6,-66,10,-69C26,-72,40,-72,40,-64Z" transform="translate(100 100)"/></svg>
+  <svg class="blob hide-sp" style="bottom:-10%; right:4%; width:200px" viewBox="0 0 200 200" aria-hidden="true"><path fill="#2ecf9a" fill-opacity="0.8" d="M38,-60C49,-52,57,-39,63,-25C68,-11,71,5,66,19C61,33,49,45,35,55C21,64,3,71,-14,69C-31,68,-49,58,-60,43C-71,28,-75,8,-71,-9C-67,-27,-55,-42,-41,-51C-26,-60,-13,-62,2,-65C17,-68,34,-68,38,-60Z" transform="translate(100 100)"/></svg>
+
+  <!-- 手描きdoodle -->
+  <svg class="doodle float" style="top:10%; left:6%; width:46px" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" fill="#fff" stroke="#2a44d4" stroke-width="2.5" stroke-linejoin="round"/></svg>
+  <svg class="doodle float alt" style="top:20%; right:8%; width:54px" viewBox="0 0 60 60" aria-hidden="true"><g stroke="#ff3e9a" stroke-width="3" stroke-linecap="round"><line x1="30" y1="30" x2="30" y2="6"/><line x1="30" y1="30" x2="30" y2="54"/><line x1="30" y1="30" x2="6" y2="30"/><line x1="30" y1="30" x2="54" y2="30"/><line x1="30" y1="30" x2="13" y2="13"/><line x1="30" y1="30" x2="47" y2="47"/><line x1="30" y1="30" x2="13" y2="47"/><line x1="30" y1="30" x2="47" y2="13"/></g><g fill="#ffd12e"><circle cx="30" cy="6" r="3"/><circle cx="30" cy="54" r="3"/><circle cx="6" cy="30" r="3"/><circle cx="54" cy="30" r="3"/></g></svg>
+  <svg class="doodle float" style="bottom:18%; left:9%; width:40px; --rot:-12deg" viewBox="0 0 44 60" aria-hidden="true"><line x1="22" y1="2" x2="22" y2="9" stroke="#2a44d4" stroke-width="2.5"/><rect x="9" y="9" width="26" height="6" rx="2" fill="#ef4b3c"/><path d="M9 15 Q22 24 35 15 L35 42 Q22 51 9 42 Z" fill="#ef4b3c"/><line x1="16" y1="18" x2="16" y2="42" stroke="#fff" stroke-width="2"/><line x1="22" y1="19" x2="22" y2="44" stroke="#fff" stroke-width="2"/><line x1="28" y1="18" x2="28" y2="42" stroke="#fff" stroke-width="2"/><rect x="9" y="42" width="26" height="6" rx="2" fill="#c43a2d"/></svg>
+  <svg class="doodle spin-slow" style="bottom:22%; right:10%; width:48px" viewBox="0 0 60 60" aria-hidden="true"><g stroke="#2a44d4" stroke-width="2.5"><path d="M30 30 L30 6 A20 20 0 0 1 50 26 Z" fill="#1ec3e6"/><path d="M30 30 L54 30 A20 20 0 0 1 34 50 Z" fill="#ffd12e"/><path d="M30 30 L30 54 A20 20 0 0 1 10 34 Z" fill="#ff3e9a"/><path d="M30 30 L6 30 A20 20 0 0 1 26 10 Z" fill="#2ecf9a"/></g><circle cx="30" cy="30" r="5" fill="#fff" stroke="#2a44d4" stroke-width="2.5"/></svg>
+  <svg class="doodle float alt" style="top:46%; left:3%; width:30px" viewBox="0 0 30 30" aria-hidden="true"><path d="M15 2 L18 12 L28 15 L18 18 L15 28 L12 18 L2 15 L12 12 Z" fill="#ffd12e" stroke="#2a44d4" stroke-width="2" stroke-linejoin="round"/></svg>
+
+  <div class="hero-inner">
+    <div class="badge-decided reveal" style="animation-delay:0.05s">＼ 開催<b>決定</b>！ ／</div>
+    <p class="hero-eyebrow reveal" style="animation-delay:0.18s">夏休み・子どもたちの、子どもたちによる、子どもたちのためのイベント</p>
+    <div class="hero-name reveal" style="animation-delay:0.28s">
+      <span style="--r:-3deg">き</span><span style="--r:2deg">り</span><span style="--r:-2deg">し</span><span style="--r:3deg">ま</span>
+    </div>
+    <h1 class="hero-big reveal" style="animation-delay:0.4s">キッズフリマ</h1>
+    <div class="hero-info reveal" style="animation-delay:0.55s">
+      <div class="row"><span class="tag">日 時</span><span class="val">2026.8.3 <small>(月)</small> 10:00–12:00</span></div>
+      <div class="row"><span class="tag">会 場</span><span class="val">桷志田体育館</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 開催概要 ============ -->
+<section class="overview" id="overview">
+  <svg class="blob hide-sp" style="top:6%; right:-6%; width:170px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="100" fill="#ffd12e" fill-opacity="0.18"/></svg>
+  <div class="section-head">
+    <h2 class="pop-title" style="--hl:var(--cyan)">開催概要</h2>
+    <span class="section-sub">いつ・どこで・だれが？</span>
+  </div>
+  <div class="card-grid">
+    <div class="pop-card c-cyan reveal" style="--tilt:-1.5deg">
+      <span class="icon">🗓️</span>
+      <h3>開催日時</h3>
+      <p class="big">2026.8.3<small>(月)</small><br>10:00〜12:00</p>
+    </div>
+    <div class="pop-card c-magenta reveal" style="--tilt:1.2deg; animation-delay:0.1s">
+      <span class="icon">📍</span>
+      <h3>会場</h3>
+      <p class="big">桷志田体育館</p>
+    </div>
+    <div class="pop-card c-green reveal" style="--tilt:-1deg; animation-delay:0.2s">
+      <span class="icon">🧒</span>
+      <h3>出店対象</h3>
+      <p class="big">小学<small> 3年生〜6年生</small></p>
+    </div>
+  </div>
+
+  <div class="map-block">
+    <p class="map-label"><span class="pin">📍</span>会場アクセスマップ</p>
+    <div class="map-frame">
+      <iframe
+        src="https://maps.google.com/maps?q=%E6%A1%B7%E5%BF%97%E7%94%B0%E4%BD%93%E8%82%B2%E9%A4%A8&z=16&hl=ja&output=embed"
+        title="桷志田体育館の地図"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+    </div>
+    <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=%E6%A1%B7%E5%BF%97%E7%94%B0%E4%BD%93%E8%82%B2%E9%A4%A8" target="_blank" rel="noopener noreferrer">Googleマップで開く ＞</a>
+  </div>
+</section>
+
+<!-- ============ このイベントの目的 ============ -->
+<section class="purpose" id="purpose">
+  <svg class="blob hide-sp" style="top:0; left:-8%; width:200px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="100" fill="#ff3e9a" fill-opacity="0.12"/></svg>
+  <div class="section-head">
+    <h2 class="pop-title" style="--hl:var(--pink)">このイベントの目的</h2>
+    <span class="section-sub">フリマで育つ、3つのチカラ</span>
+  </div>
+  <div class="card-grid">
+    <div class="pop-card c-yellow reveal" style="--tilt:-1.5deg">
+      <span class="num">1</span>
+      <span class="icon">💴</span>
+      <h3>お金の学習</h3>
+      <p>自分で値段を決めて、売って、買って。お金の使い方や価値を、体験を通して学びます。</p>
+    </div>
+    <div class="pop-card c-magenta reveal" style="--tilt:1.3deg; animation-delay:0.1s">
+      <span class="num">2</span>
+      <span class="icon">🤝</span>
+      <h3>コミュニケーションの学習</h3>
+      <p>お客さんとのやりとりを通じて、伝える力・聞く力を育みます。</p>
+    </div>
+    <div class="pop-card c-green reveal" style="--tilt:-1deg; animation-delay:0.2s">
+      <span class="num">3</span>
+      <span class="icon">♻️</span>
+      <h3>リサイクル・環境循環の学習</h3>
+      <p>大切に使ったものを次の人へ。ものを大切にする心とリユースの意識を育みます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 当日の流れ ============ -->
+<section class="flow" id="flow">
+  <div class="section-head">
+    <h2 class="pop-title" style="--hl:var(--yellow)">当日の流れ</h2>
+    <span class="section-sub">受付からお片付けまで</span>
+  </div>
+  <p class="flow-lead">出店するのも、買い物をするのも子どもたち。<br>子ども同士のやりとりを大切にした、手づくりのフリーマーケットです。</p>
+  <ol class="flow-route">
+    <li class="step"><span class="bubble"><span class="no">1</span>📝</span><span class="name">受付</span></li>
+    <li class="step"><span class="bubble"><span class="no">2</span>🛍️</span><span class="name">準備</span></li>
+    <li class="step"><span class="bubble"><span class="no">3</span>🎉</span><span class="name">フリマスタート</span></li>
+    <li class="step"><span class="bubble"><span class="no">4</span>🔔</span><span class="name">終了</span></li>
+    <li class="step"><span class="bubble"><span class="no">5</span>🧹</span><span class="name">片付け</span></li>
+  </ol>
+</section>
+
+<!-- ============ お問い合わせ ============ -->
+<section class="contact" id="contact">
+  <div class="section-head">
+    <h2 class="pop-title" style="--hl:var(--green)">お問い合わせ・出店申込について</h2>
+  </div>
+  <div class="contact-card">
+    <svg class="smiley" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="25" fill="#ffd12e" stroke="#2a44d4" stroke-width="3"/><circle cx="20" cy="24" r="3.2" fill="#2a44d4"/><circle cx="36" cy="24" r="3.2" fill="#2a44d4"/><path d="M18 34 Q28 44 38 34" fill="none" stroke="#2a44d4" stroke-width="3" stroke-linecap="round"/></svg>
+    <p class="contact-lead">出店申込の詳細は、後日あらためてご案内いたします。<br>楽しみにお待ちください！</p>
+    <span class="contact-info">主催：準備中</span>
+  </div>
+</section>
+
+<!-- ============ フッター ============ -->
+<footer class="site-footer">
+  <svg class="wave-top" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path fill="#fffdf6" d="M0,20 C120,40 240,0 360,18 C480,36 600,4 720,18 C840,32 960,2 1080,16 C1200,30 1320,6 1440,20 L1440,0 L0,0 Z"/></svg>
+  <div class="f-lanterns" aria-hidden="true">
+    <svg width="26" height="34" viewBox="0 0 44 60"><rect x="9" y="9" width="26" height="6" rx="2" fill="#fff"/><path d="M9 15 Q22 24 35 15 L35 42 Q22 51 9 42 Z" fill="#ff3e9a"/><rect x="9" y="42" width="26" height="6" rx="2" fill="#fff"/></svg>
+    <svg width="26" height="34" viewBox="0 0 44 60"><rect x="9" y="9" width="26" height="6" rx="2" fill="#fff"/><path d="M9 15 Q22 24 35 15 L35 42 Q22 51 9 42 Z" fill="#ffd12e"/><rect x="9" y="42" width="26" height="6" rx="2" fill="#fff"/></svg>
+    <svg width="26" height="34" viewBox="0 0 44 60"><rect x="9" y="9" width="26" height="6" rx="2" fill="#fff"/><path d="M9 15 Q22 24 35 15 L35 42 Q22 51 9 42 Z" fill="#2ecf9a"/><rect x="9" y="42" width="26" height="6" rx="2" fill="#fff"/></svg>
+  </div>
+  <p>きりしまキッズフリマ実行委員会</p>
+  <p class="copy">© 2026 Kirishima Kids Flea Market</p>
+</footer>
+
+</body>
+</html>
